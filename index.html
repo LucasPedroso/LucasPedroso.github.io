@@ -1,37 +1,199 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
     <title>Document</title>
+    <style>
+        #foto-perfil {
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        #foto-perfil:hover {
+            opacity: 0.7;
+        }
+
+        /* The Modal (background) */
+        .modal {
+            display: none;
+            /* Hidden by default */
+            position: fixed;
+            /* Stay in place */
+            z-index: 1;
+            /* Sit on top */
+            padding-top: 100px;
+            /* Location of the box */
+            left: 0;
+            top: 0;
+            width: 100%;
+            /* Full width */
+            height: 100%;
+            /* Full height */
+            overflow: auto;
+            /* Enable scroll if needed */
+            background-color: rgb(0, 0, 0);
+            /* Fallback color */
+            background-color: rgba(0, 0, 0, 0.9);
+            /* Black w/ opacity */
+        }
+
+        /* Modal Content (image) */
+        .modal-content {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+        }
+
+        /* Caption of Modal Image */
+        #caption {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+            text-align: center;
+            color: #ccc;
+            padding: 10px 0;
+            height: 150px;
+        }
+
+        /* Add Animation */
+        .modal-content,
+        #caption {
+            animation-name: zoom;
+            animation-duration: 0.6s;
+        }
+
+        @keyframes zoom {
+            from {
+                transform: scale(0.1)
+            }
+
+            to {
+                transform: scale(1)
+            }
+        }
+
+        /* The Close Button */
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* 100% Image Width on Smaller Screens */
+        @media only screen and (max-width: 700px) {
+            .modal-content {
+                width: 100%;
+            }
+        }
+    </style>
 </head>
+
 <body>
-    <menu>
-        <a href=""></a>
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="img01">
+        <div id="caption"></div>
+    </div>
+    <menu id="navbar">
+        <a href="#about">Sobre</a>
+        <a href="#citacoes">Citações</a>
+        <a href="#skills">Habilidades</a>
     </menu>
-    <h1>Lucas Eduardo Pedroso</h1>
-    <img src="lucas-bone.jpg" alt="Foto do Lucas Eduardo Pedroso" width="200px">
+
+    <h1 id="inicio">Lucas Eduardo Pedroso</h1>
+    <img id="foto-perfil" src="lucas-bone.jpg" alt="Foto de Lucas Eduardo Pedroso" width="200px">
     <p>Bebedouro - São Paulo - Brasil</p>
+
+    <h2 id="about">Sobre</h2>
+    <p>Estudante na <b>Trybe</b> e apaixonado por tecnologia, desde os 8 anos.</p>
+
+    <h2 id="citacoes">Citações</h2>
     <p>"Você vê coisas e diz: Por que?, mas eu sonho coisas que nunca existiram e digo: Por que não?"
         ( George Bernard Shaw )</p>
     <p>"Nada é insubstituível, um hábito não é uma necessidade."</p>
     <br>
     <br>
-    <ul>
-        <li id="skill">HTML</li>
-        <li id="skill">CSS</li>
-        <li id="skill"><h4>Javascript</h4></li>
-        <li id="skill"><b>Node</b></li>
-        <li id="skill"><em>Java</em></li>
-        <li id="skill">Spring</li>
-        <li id="skill">Hibernate</li>
-        <li id="skill">TypeScript</li>
-        <li id="skill">RESTful</li>
-        <li id="skill"><b>ReactJS</b></li>
-        <li id="skill">Linux</li>
+
+    <h2 id="skills">Habilidades</h2>
+    <ul id="habilidades">
+        <li id="html">HTML</li>
+        <li id="css">CSS</li>
+        <li id="javascript">
+            <h4>Javascript</h4>
+        </li>
+        <li id="node"><b>Node</b></li>
+        <li id="java"><em>Java</em></li>
+        <li id="spring">Spring</li>
+        <li id="hibernate">Hibernate</li>
+        <li id="typescript">TypeScript</li>
+        <li id="restful">RESTful</li>
+        <li id="reactjs"><b>ReactJS</b></li>
+        <li id="linux">Linux</li>
     </ul>
-    
-    <a href="https://blog.rocketseat.com.br/">Blog da Rocketseat</a>
+
+    <a id="blog-fav" href="https://blog.rocketseat.com.br/">Blog da Rocketseat</a>
+
+    <script lang="javascript">
+        // When the user scrolls the page, execute myFunction
+        window.onscroll = function () { myFunction() };
+
+        // Get the navbar
+        var navbar = document.getElementById("navbar");
+
+        // Get the offset position of the navbar
+        var sticky = navbar.offsetTop;
+
+        // Add the sticky class to the navbar when you reach its scroll position. Remove "sticky" when you leave the scroll position
+        function myFunction() {
+            if (window.pageYOffset >= sticky) {
+                navbar.classList.add("sticky")
+            } else {
+                navbar.classList.remove("sticky");
+            }
+        }
+    </script>
+
+    <script>
+        // Get the modal
+        var modal = document.getElementById('myModal');
+
+        // Get the image and insert it inside the modal - use its "alt" text as a caption
+        var img = document.getElementById('foto-perfil');
+        var modalImg = document.getElementById("img01");
+        var captionText = document.getElementById("caption");
+        img.onclick = function () {
+            modal.style.display = "block";
+            modalImg.src = this.src;
+            captionText.innerHTML = this.alt;
+        }
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function () {
+            modal.style.display = "none";
+        }
+    </script>
 </body>
+
 </html>
