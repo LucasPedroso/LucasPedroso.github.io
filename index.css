@@ -22,7 +22,6 @@ body {
     transition: transform 1s linear;
     transform-origin: center center;
     transform-style: preserve-3D;
-    
 }
 #adress:hover {
     transform: rotate(360deg);
