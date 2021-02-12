@@ -55,7 +55,7 @@
         <li id="linux">Linux</li>
     </ul>
 
-    <a id="blog-fav" href="https://blog.rocketseat.com.br/">Blog da Rocketseat</a>
+    <a id="blog-fav" href="https://blog.rocketseat.com.br/" target="_blank">Blog da Rocketseat</a>
 
     <script lang="javascript">
         //Copiado de w3schools 
@@ -66,6 +66,8 @@
         var sticky = navbar.offsetTop;
 
         function myFunction() {
+            console.log("Sticky :" + sticky);
+            console.log("Window :" + window.pageYOffset);
             if (window.pageYOffset >= sticky) {
                 navbar.classList.add("sticky")
             } else {
