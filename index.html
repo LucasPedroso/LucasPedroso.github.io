@@ -22,58 +22,63 @@
     <img id="foto-perfil" src="lucas-bone.jpg" alt="Foto de Lucas Eduardo Pedroso" width="200px">
     <p id="adress">Bebedouro - São Paulo - Brasil</p>
 
-    <menu id="navbar">
+    <div id="navbar">
         <a href="#about">Sobre</a>
         <a href="#citacoes">Citações</a>
         <a href="#skills">Habilidades</a>
-    </menu>
+    </div>
+    <main class="content">
+        <h2 id="about">Sobre</h2>
+        <p>Estudante na <b>Trybe</b> e apaixonado por tecnologia, desde os 8 anos.</p>
+
+        <h2 id="citacoes">Citações</h2>
+        <p>"Você vê coisas e diz: Por que?, mas eu sonho coisas que nunca existiram e digo: Por que não?"
+            ( George Bernard Shaw )</p>
+        <p>"Nada é insubstituível, um hábito não é uma necessidade."</p>
+        <br>
+        <br>
+
+        <h2 id="skills">Habilidades</h2>
+        <ul id="habilidades">
+            <li id="html">HTML</li>
+            <li id="css">CSS</li>
+            <li id="javascript">
+                <h4>Javascript</h4>
+            </li>
+            <li id="node"><b>Node</b></li>
+            <li id="java"><em>Java</em></li>
+            <li id="spring">Spring</li>
+            <li id="hibernate">Hibernate</li>
+            <li id="typescript">TypeScript</li>
+            <li id="restful">RESTful</li>
+            <li id="reactjs"><b>ReactJS</b></li>
+            <li id="linux">Linux</li>
+        </ul>
+
+        <a id="blog-fav" href="https://blog.rocketseat.com.br/" target="_blank">Blog da Rocketseat</a>
+
+    </main>
     
-    <h2 id="about">Sobre</h2>
-    <p>Estudante na <b>Trybe</b> e apaixonado por tecnologia, desde os 8 anos.</p>
-
-    <h2 id="citacoes">Citações</h2>
-    <p>"Você vê coisas e diz: Por que?, mas eu sonho coisas que nunca existiram e digo: Por que não?"
-        ( George Bernard Shaw )</p>
-    <p>"Nada é insubstituível, um hábito não é uma necessidade."</p>
-    <br>
-    <br>
-
-    <h2 id="skills">Habilidades</h2>
-    <ul id="habilidades">
-        <li id="html">HTML</li>
-        <li id="css">CSS</li>
-        <li id="javascript">
-            <h4>Javascript</h4>
-        </li>
-        <li id="node"><b>Node</b></li>
-        <li id="java"><em>Java</em></li>
-        <li id="spring">Spring</li>
-        <li id="hibernate">Hibernate</li>
-        <li id="typescript">TypeScript</li>
-        <li id="restful">RESTful</li>
-        <li id="reactjs"><b>ReactJS</b></li>
-        <li id="linux">Linux</li>
-    </ul>
-
-    <a id="blog-fav" href="https://blog.rocketseat.com.br/" target="_blank">Blog da Rocketseat</a>
-
     <script lang="javascript">
-        //Copiado de w3schools 
-        window.onscroll = function () { myFunction() };
+        //Copiado de w3schools e editado por Lucas Pedroso
+        
 
-        var navbar = document.getElementById("navbar");
+        window.onload = function () { 
+            window.onscroll = function () { myFunction() };
 
-        var sticky = navbar.offsetTop;
+            let navbar = document.getElementById("navbar");
+            let sticky = navbar.offsetTop; 
 
-        function myFunction() {
-            console.log("Sticky :" + sticky);
-            console.log("Window :" + window.pageYOffset);
-            if (window.pageYOffset >= sticky) {
-                navbar.classList.add("sticky")
-            } else {
-                navbar.classList.remove("sticky");
+            function myFunction() {
+                console.log("Sticky :" + sticky);
+                console.log("Window :" + window.pageYOffset);
+                if (window.pageYOffset >= sticky) {
+                    navbar.classList.add("sticky")
+                } else {
+                    navbar.classList.remove("sticky");
+                }
             }
-        }
+        } 
     </script>
 
     <script>
