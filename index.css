@@ -2,7 +2,6 @@ body {
     margin: 0px;
     border: 0px;
     padding: 0px;
-    padding-top: 0px;
     text-align: center;
     background-color: #246;
 }
@@ -19,6 +18,14 @@ body {
 
 #adress {
     font-family: 'Times New Roman', Times, serif;
+    font-style: italic;
+    transition: transform 1s linear;
+    transform-origin: center center;
+    transform-style: preserve-3D;
+    
+}
+#adress:hover {
+    transform: rotate(360deg);
 }
 
 ul {
@@ -30,8 +37,10 @@ ul {
     overflow: hidden;
     background-color: #333;
     top: 0px;
-    padding-top: 0px;
-  }
+    padding: 0px;
+    margin: 0px;
+}
+
 #navbar :hover {
     background-color: #246;
 } 
@@ -59,7 +68,7 @@ ul {
 
 /* Add some top padding to the page content to prevent sudden quick movement (as the navigation bar gets a new position at the top of the page (position:fixed and top:0) */
 .sticky + .content {
-    padding-top: 30px;
+    padding-top: 0px;
 }
 
 img#foto-perfil {
